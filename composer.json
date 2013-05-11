@@ -7,23 +7,8 @@
         "zf2"
     ],
     "homepage": "http://liratanak.github.io",
-	"repositories": {
-        "spd-example": {
-            "type": "package",
-            "package": {
-                "name": "liratanak/spd-example",
-                "version": "0.0.2",
-                "source": {
-                    "url": "git://github.com/liratanak/SpdExample.git",
-                    "type": "git",
-                    "reference": "0.0.2"
-                }
-            }
-        }
-    },
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zendframework": "2.*",
-        "liratanak/spd-example": "dev-master"
+        "zendframework/zendframework": "2.*"
     }
 }
