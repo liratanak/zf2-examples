@@ -1,8 +1,7 @@
 <?php
 return array(
     'modules' => array(
-        'Application',
-		'Finance',
+        'SpdExample',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
