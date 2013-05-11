@@ -2,7 +2,6 @@
 return array(
     'modules' => array(
         'SpdExample',
-		'ZendSkeletonModule',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
