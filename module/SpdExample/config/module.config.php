@@ -19,6 +19,20 @@ return array(
 						'action' => 'index',
 					),
 				),
+				'may_terminate' => true,
+				'child_routes' => array(
+					'doctrine' => array(
+						'type' => 'Zend\Mvc\Router\Http\Segment',
+						'options' => array(
+							'route' => '/[:action[/]]',
+							'constraints' => array(
+								'action' => '[a-zA-Z0-9_-]+',
+							),
+							'defaults' => array(
+							),
+						),
+					),
+				),
 			),
 		),
 	),

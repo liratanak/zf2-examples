@@ -1,0 +1,13 @@
+<table class="table table-bordered">
+	<tbody>
+		<?php
+		for ($i = 1; $i <= $num; $i++) {
+			echo '<tr>';
+			for ($j = 1; $j <= $num; $j++) {
+				echo '<td>' . ($i * $j) . '</td>';
+			}
+			echo '</tr>';
+		}
+		?>
+	</tbody>
+</table>
