@@ -1,15 +1,29 @@
 {
     "name": "zendframework/skeleton-application",
-    "description": "Skeleton Application for ZF2",
+    "description": "ZF2 example by SPEEDER",
     "license": "BSD-3-Clause",
     "keywords": [
-        "framework",
+        "SPEEDER",
         "zf2"
     ],
-    "homepage": "http://framework.zend.com/",
+    "homepage": "http://liratanak.github.io",
+	"repositories": {
+        "spd-example": {
+            "type": "package",
+            "package": {
+                "name": "liratanak/spd-example",
+                "version": "0.0.2",
+                "source": {
+                    "url": "git://github.com/liratanak/SpdExample.git",
+                    "type": "git",
+                    "reference": "0.0.2"
+                }
+            }
+        }
+    },
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.*",
-        "ghislainf/zf2-whoops": "dev-master"
+        "liratanak/spd-example": "dev-master"
     }
 }
