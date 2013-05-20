@@ -35,6 +35,50 @@ class ShopController extends AbstractActionController {
 		));
 	}
 
+	public function updateAction() {
+		$request = $this->getRequest();
+
+		if ($request->isPost()) {
+			$postData = (array) $request->getPost();
+			
+			$id = $postData['id'];
+			$shop = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default')->find('\SpdExample\Entity\Shop', $id);
+
+			if(null == $shop){
+				$this->redirect()->toRoute('home/spd', array('controller' => 'shop', 'action' => 'index'));
+			}
+		
+			if (isset($postData['brand'])) {
+				
+				$shop->setBrandName($postData['brand']);
+
+				$em = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
+				$em->persist($shop);
+				$em->flush();
+
+				$this->flashMessenger()->addMessage('<div class="alert alert-success">Success</div>');
+				$this->redirect()->toRoute('home/spd', array('controller' => 'shop', 'action' => 'index'));
+			}
+		}
+	}
+	
+		public function deleteAction() {
+		$id = $this->params('id');
+
+		$shop = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default')->find('\SpdExample\Entity\Shop', $id);
+		if(null == $shop){
+			$this->redirect()->toRoute('home/spd', array('controller' => 'shop', 'action' => 'index'));
+		}
+
+		$em = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
+		$em->remove($shop);
+		$em->flush();
+
+		$this->flashMessenger()->addMessage('<div class="alert alert-success">Success</div>');
+		return $this->redirect()->toRoute('home/spd', array('controller' => 'shop', 'action' => 'index'));
+	}
+
+	
 	public function createAction() {
 		$request = $this->getRequest();
 

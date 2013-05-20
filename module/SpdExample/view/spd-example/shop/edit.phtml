@@ -1,0 +1,17 @@
+<form class="form-horizontal" method="post" action="<?php echo $this->url('home/spd', array('controller' => 'shop', 'action' => 'update')) ?>">
+	<fieldset>
+		<legend>Update shop</legend>
+		<input type="hidden" name="id" value="<?php echo $shop->getId(); ?>" />
+		<div class="control-group">
+			<label class="control-label" for="brand">Brand</label>
+			<div class="controls">
+				<input type="text" id="brand" name="brand" placeholder="Brand" value="<?php echo $shop->getBrandName(); ?>" >
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<button type="submit" class="btn"><?php echo $submitText ?></button>
+			</div>
+		</div>
+	</fieldset>
+</form>

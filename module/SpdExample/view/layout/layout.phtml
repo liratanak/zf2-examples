@@ -44,6 +44,7 @@
 
 		<!-- All JavaScript at the bottom, except for Modernizr and Respond. Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
 		<script src="/bootmetro/scripts/modernizr-2.6.1.min.js"></script>
+		<script type="text/javascript" src='/bootmetro/scripts/jquery-1.8.2.min.js'></script>
 	</head>
 
 	<body data-accent="blue">
@@ -95,7 +96,7 @@
 				<div class="row">
 					<div class="span6 align-left">
 
-						<a class="win-command">
+						<a href="<?php echo $this->url('home'); ?>" class="win-command">
 							<span class="win-commandimage win-commandring">&#x0021;</span>
 							<span class="win-label">Home</span>
 						</a>
@@ -104,27 +105,7 @@
 
 						<button class="win-command">
 							<a href="<?php echo $this->url('home/spd', array('controller'=>'shop', 'action'=> 'index')) ?>" class="win-commandimage win-commandring">&#xe114;</a>
-							<span class="win-label">Add</span>
-						</button>
-
-						<button class="win-command">
-							<span class="win-commandimage win-commandring">&#x0052;</span>
-							<span class="win-label">Save</span>
-						</button>
-
-						<button class="win-command">
-							<span class="win-commandimage win-commandring">&#xe125;</span>
-							<span class="win-label">Reload</span>
-						</button>
-
-						<button class="win-command">
-							<span class="win-commandimage win-commandring">&#xe1cd;</span>
-							<span class="win-label">Previous</span>
-						</button>
-
-						<button class="win-command">
-							<span class="win-commandimage win-commandring">&#xe1ca;</span>
-							<span class="win-label">Next</span>
+							<span class="win-label">Shop</span>
 						</button>
 					</div>
 				</div>
@@ -157,7 +138,6 @@
 			</div>
 		</div>
 
-		<script type="text/javascript" src='/bootmetro/scripts/jquery-1.8.2.min.js'></script>
 		<script type="text/javascript" src="/bootmetro/scripts/google-code-prettify/prettify.js"></script>
 		<script type="text/javascript" src="/bootmetro/scripts/jquery.mousewheel.js"></script>
 		<script type="text/javascript" src="/bootmetro/scripts/jquery.scrollTo.js"></script>

@@ -20,11 +20,34 @@
 		<?php
 		foreach ($shops as $shop) {
 			echo '<tr>';
-			echo '<td>'.$shop->getId().'</td>';
-			echo '<td>'.$shop->getBrandName().'</td>';
-			echo '<td><a href="'. $this->url('home/spd', array('controller' => 'shop', 'action' => 'edit', 'id' => $shop->getId())) .'" class="icon-pencil-2"></a></td>';
+			echo '<td>' . $shop->getId() . '</td>';
+			echo '<td>' . $shop->getBrandName() . '</td>';
+			echo '<td><a href="' . $this->url('home/spd', array('controller' => 'shop', 'action' => 'edit', 'id' => $shop->getId())) . '" class="icon-pencil-2"></a></td>';
+			echo '<td><input class="url" type="hidden" value="'. $this->url('home/spd', array('controller' => 'shop', 'action' => 'delete', 'id' => $shop->getId())) .'" /><a href="#" class="icon-remove deleteIcon"></a></td>';
 			echo '</tr>';
 		}
 		?>
 	</tbody>
 </table>
+
+<!-- Modal -->
+<div id="deleteConfirmation" class="modal message hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+		<h3 id="myModalLabel">Delete confirmation</h3>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<a id="linkDelete" href="#" class="btn btn-danger">Delete</a>
+	</div>
+</div>
+
+<script type="text/javascript">
+	jQuery(document).ready(function (){
+		jQuery('.deleteIcon').click(function (){
+			var url = jQuery(this).parent().find('.url').val();
+			jQuery('#linkDelete').attr('href', url);
+			jQuery('#deleteConfirmation').modal('show');
+		});
+	});
+</script>
