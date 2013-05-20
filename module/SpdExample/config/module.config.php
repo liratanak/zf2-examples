@@ -15,7 +15,7 @@ return array(
 			'home' => array(
 				'type' => 'Zend\Mvc\Router\Http\Literal',
 				'options' => array(
-					'route' => '/spd',
+					'route' => '/',
 					'defaults' => array(
 						'controller' => 'index',
 						'action' => 'index',
@@ -23,15 +23,17 @@ return array(
 				),
 				'may_terminate' => true,
 				'child_routes' => array(
-					'doctrine' => array(
+					'spd' => array(
 						'type' => 'Zend\Mvc\Router\Http\Segment',
 						'options' => array(
-							'route' => '/[:action[/:entity]]',
+							'route' => 'spd/[:controller[/[:action[/[:id]]]]]',
 							'constraints' => array(
 								'action' => '[a-zA-Z0-9_-]+',
-								'entity' => '[a-zA-Z0-9_-]+',
+								'controller' => '[a-zA-Z0-9_-]+',
+								'id' => '[0-9]+',
 							),
 							'defaults' => array(
+								'action' => 'index'
 							),
 						),
 					),
@@ -56,7 +58,8 @@ return array(
 	),
 	'controllers' => array(
 		'invokables' => array(
-			'index' => 'SpdExample\Controller\IndexController'
+			'index' => __NAMESPACE__ . '\Controller\IndexController',
+			'shop' => __NAMESPACE__ . '\Controller\ShopController',
 		),
 	),
 	'view_manager' => array(

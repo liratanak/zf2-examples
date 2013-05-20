@@ -1,0 +1,30 @@
+<?php if (count($messages)) : ?>
+	<?php foreach ($messages as $msg) : ?>
+		<?php echo $msg; ?>
+	<?php endforeach; ?>
+<?php endif; ?>
+
+<button class="win-command">
+	<a href="<?php echo $this->url('home/spd', array('controller' => 'shop', 'action' => 'new')) ?>" class="win-commandimage win-commandring">&#xe12c;</a>
+	<span class="win-label">Add shop</span>
+</button>
+<table class="table">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Brand name</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php
+		foreach ($shops as $shop) {
+			echo '<tr>';
+			echo '<td>'.$shop->getId().'</td>';
+			echo '<td>'.$shop->getBrandName().'</td>';
+			echo '<td><a href="'. $this->url('home/spd', array('controller' => 'shop', 'action' => 'edit', 'id' => $shop->getId())) .'" class="icon-pencil-2"></a></td>';
+			echo '</tr>';
+		}
+		?>
+	</tbody>
+</table>
