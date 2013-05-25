@@ -12,6 +12,10 @@ namespace SpdExample;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\TableGateway\TableGateway;
+use SpdExample\Domain\Model\Category;
+use SpdExample\Domain\Repository\CategoryRepository;
 
 class Module {
 
@@ -32,6 +36,23 @@ class Module {
 				'namespaces' => array(
 					__NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
 				),
+			),
+		);
+	}
+
+	public function getServiceConfig() {
+		return array(
+			'factories' => array(
+				'SpdExample\Domain\Model\Category' => function($sm) {
+					$tableGateway = $sm->get('CategoryGateway');
+					$table = new CategoryRepository($tableGateway);
+					return $table;
+				},
+				'CategoryGateway' => function ($sm) {
+					$dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+					$resultSetPrototype = new ResultSet();
+					return new TableGateway('category', $dbAdapter, null, $resultSetPrototype);
+				},
 			),
 		);
 	}

@@ -14,7 +14,7 @@
 return array(
 	'db' => array(
 		'driver' => 'Pdo',
-		'dsn' => 'mysql:dbname=zf2-example;host=localhost',
+		'dsn' => 'mysql:dbname=zf2-doctrine-example;host=localhost',
 		'username' => 'root',
 		'password' => '',
 		'driver_options' => array(
